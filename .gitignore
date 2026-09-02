@@ -1,0 +1,35 @@
+# Object files
+*.o
+
+# Executables
+bmp_parser
+fuzz_bmp
+fuzz_bmp_cov
+
+# LLVM coverage files
+*.profraw
+*.profdata
+
+# Editor temporary files
+*.swp
+
+# Lab binaries
+asan_lab/heap_overflow
+asan_lab/heap_overflow_asan
+asan_lab/oob_read
+asan_lab/oob_read_asan
+asan_lab/oob_write
+asan_lab/oob_write_asan
+asan_lab/use_after_free
+asan_lab/use_after_free_asan
+asan_lab/use_after_free_gdb
+
+vuln_lab/allocation_overflow
+vuln_lab/allocation_overflow_asan
+vuln_lab/allocation_overflow_gdb
+vuln_lab/integer_overflow
+vuln_lab/mini_parser
+vuln_lab/vulnerable_image_size
+
+# Old parser executable
+src/bmp_reader
