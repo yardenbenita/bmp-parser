@@ -845,18 +845,42 @@ The experiments are intended to develop practical understanding of binary
 parsing, arithmetic validation, memory safety, program execution, and
 vulnerability investigation.
 
+
 ## Roadmap
 
-The current stage focuses on building a defensive BMP parser and practicing
-vulnerability research techniques in a controlled environment.
+This project is part of a hands-on learning path focused on secure C programming, binary analysis, and vulnerability research.
 
-Planned next steps:
+### Completed
 
-- Select a real-world open-source target written in C/C++.
-- Reproduce and analyze a previously fixed CVE.
-- Identify the vulnerability's root cause.
-- Study the security impact of the bug.
-- Analyze the upstream patch and understand how it fixes the vulnerability.
-- Use GDB and sanitizers to investigate the vulnerable behavior.
-- Introduce Ghidra for binary-level analysis where appropriate.
-- Apply fuzzing and coverage techniques to a real-world target.
+- [x] Develop a defensive BMP parser with explicit input validation.
+- [x] Implement integer-overflow protection for image-size calculations.
+- [x] Create valid and malformed BMP inputs to test parser behavior.
+- [x] Use AddressSanitizer and UndefinedBehaviorSanitizer in controlled experiments.
+- [x] Implement coverage-guided fuzzing with libFuzzer.
+- [x] Analyze source-level code coverage using LLVM tools.
+- [x] Construct targeted inputs to exercise previously uncovered security-sensitive branches.
+- [x] Investigate integer-overflow detection at the assembly level using GDB.
+- [x] Verify error handling and propagation through the parser's call chain.
+
+### Related Vulnerability Research
+
+A separate research project focuses on **CVE-2023-52356 in libtiff**, a real-world open-source C library.
+
+The investigation included:
+
+- Reproducing the vulnerability in an affected version.
+- Analyzing the crash using GDB and AddressSanitizer.
+- Investigating the root cause of the invalid memory access.
+- Examining the upstream patch.
+- Verifying the behavior of the patched version.
+
+The research is maintained in a separate repository, with documentation improvements still in progress.
+
+### Next Steps
+
+- [ ] Review and finalize the documentation of the libtiff vulnerability investigation.
+- [ ] Expand binary-level analysis using Ghidra.
+- [ ] Apply coverage-guided fuzzing to a real-world open-source target.
+- [ ] Investigate unexpected crashes and identify their root causes.
+- [ ] Develop a repeatable vulnerability research workflow for analyzing unfamiliar C/C++ codebases.
+- [ ] Progress toward independently discovering and responsibly reporting vulnerabilities.
