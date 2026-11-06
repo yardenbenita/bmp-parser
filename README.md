@@ -410,15 +410,15 @@ llvm-cov show ./fuzz_bmp_cov -instr-profile=targeted.profdata src/bmp.c | grep -
 
 ### Result
 
-The targeted input successfully exercised the integer-overflow protection
-branch, as confirmed by LLVM Coverage.
+Initial coverage analysis identified an integer-overflow protection branch that had not been exercised by the tested inputs.
 
-The current fuzzing corpus also covers this branch. The experiment
-demonstrates how targeted input construction and source-level coverage
-analysis can be used together to validate security-sensitive code paths.
+To address this coverage gap, a targeted BMP input (`padding_overflow.bmp`) was constructed to trigger the branch.
 
-This result confirms the execution of the specific protection branch; it
-does not establish that every possible integer-overflow scenario is handled.
+LLVM Coverage confirmed that the targeted input successfully exercised the protection branch and that the parser rejected the input before the unsafe addition.
+
+The current fuzzing corpus also covers this branch. This experiment demonstrates how coverage analysis can guide targeted test-case construction and help validate security-sensitive code paths.
+
+This result confirms the execution of the specific protection branch; it does not establish that every possible integer-overflow scenario is handled.
 
 ## Integer-Overflow Protection
 
