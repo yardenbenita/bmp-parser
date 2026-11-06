@@ -366,6 +366,13 @@ xxd -g 1 -l 54 corpus_targeted/padding_overflow.bmp
 
 ![Targeted BMP input hex dump](docs/screenshots/targeted_input_hex.png)
 
+The highlighted bytes confirm the crafted BMP header values:
+
+- **`55 55 55 55`** (offset `0x12`): Image width, stored as a 32-bit little-endian integer (`0x55555555`).
+- **`18 00`** (offset `0x1C`): Bits per pixel, stored as a 16-bit little-endian integer (`24`).
+
+These values produce a row size of `UINT32_MAX`, making the addition of one padding byte exceed the 32-bit unsigned integer range.
+
 ### Coverage Validation
 
 The parser contains the following overflow-protection check:
