@@ -145,7 +145,6 @@ The relevant header fields are:
 | Height | `0x16` | `02 00 00 00` | 2 pixels |
 | Bits per Pixel | `0x1C` | `18 00` | 24 bits |
 
-![BMP header inspection using xxd](docs/screenshots/valid_bmp_hex.png)
 
 ### Understanding Little-Endian Byte Order
 
@@ -153,6 +152,8 @@ Multi-byte numeric fields in the BMP header are stored in **little-endian byte
 order**, meaning that the least significant byte appears first.
 
 For example:
+
+![BMP header inspection using xxd](docs/screenshots/valid_bmp_hex.png)
 
 - `03 00 00 00` represents the 32-bit value `0x00000003`, or 3 pixels.
 - `02 00 00 00` represents the 32-bit value `0x00000002`, or 2 pixels.
