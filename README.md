@@ -10,6 +10,19 @@ integer-overflow checks. Separate small programs under `asan_lab/` and
 `vuln_lab/` are used as controlled exercises for studying common memory-safety
 bugs and unsafe arithmetic.
 
+
+## Supported BMP Format
+
+The parser is intentionally designed to support uncompressed 24-bit BMP images (BI_RGB).
+
+In this format, each pixel is represented by three 8-bit color channels: Blue, Green, and Red (BGR), occupying a total of 3 bytes per pixel.
+
+Support for 24-bit BMP was chosen to keep the parsing logic focused and manageable while concentrating on secure binary parsing, input validation, integer-overflow prevention, and memory safety.
+
+Unlike indexed BMP formats, 24-bit BMP images do not require a color palette, allowing the project to focus on security-sensitive operations such as header validation, row-padding calculations, and pixel-data bounds checking.
+
+Other bit depths and compressed BMP formats are outside the current scope of the parser.
+
 ## Project Goals
 
 The project was built to practice:
@@ -162,12 +175,14 @@ For example:
 Correctly interpreting byte order is essential when reading binary file headers
 and validating attacker-controlled input.
 
+
 ### Understanding Row Padding
 
-In this BMP file, each pixel occupies 3 bytes (24 bits), and the image width
-is 3 pixels.
+The `tests/valid/padding_3x2.bmp` file uses a 24-bit pixel format, where each pixel consists of three 8-bit color channels: Blue, Green, and Red (BGR).
 
-Therefore, the unpadded row size is:
+Since each channel occupies one byte, each pixel requires 3 bytes (24 bits).
+
+With an image width of 3 pixels, the unpadded row size is:
 
 ```text
 row_size = width * bytes_per_pixel
