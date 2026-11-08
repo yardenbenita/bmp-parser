@@ -784,6 +784,7 @@ The observed output was:
 Error: BMP row size calculation would overflow.
 1
 ```
+![Malformed BMP rejected after overflow detection](docs/screenshots/bmp_overflow_rejected.png)
 
 The first line is the diagnostic message printed by the parser.
 
@@ -798,7 +799,6 @@ The same behavior was observed in GDB:
 [Inferior 1 (process ...) exited with code 01]
 ```
 
-![Malformed BMP rejected after overflow detection](docs/screenshots/bmp_overflow_rejected.png)
 
 #### Result
 
