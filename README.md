@@ -817,8 +817,7 @@ The GDB investigation demonstrated:
 - How the program ultimately exits with a nonzero status.
 
 This experiment demonstrates the behavior of the multiplication-overflow
-guard for the tested malformed input. It does not establish complete
-protection against every possible arithmetic or memory-safety vulnerability.
+guard for the tested malformed input.
 
 ### Summary of Integer-Overflow Experiments
 
