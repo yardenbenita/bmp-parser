@@ -597,8 +597,6 @@ EAX = 0x7FFFFFFD
 This is important because inspecting only `EAX` would not reveal the complete
 multiplication result.
 
-![GDB multiplication instruction](docs/screenshots/gdb_mul_instruction.png)
-
 #### Detecting the Overflow Using CPU Flags
 
 After executing the multiplication instruction with GDB, the observed values
