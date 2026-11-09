@@ -866,41 +866,26 @@ parsing, arithmetic validation, memory safety, program execution, and
 vulnerability investigation.
 
 
-## Roadmap
 
-This project is part of a hands-on learning path focused on secure C programming, binary analysis, and vulnerability research.
+## Security Testing & Analysis
 
-### Completed
+The BMP parser was developed and tested with a focus on memory safety, input validation, and integer-overflow prevention.
 
-- [x] Develop a defensive BMP parser with explicit input validation.
-- [x] Implement integer-overflow protection for image-size calculations.
-- [x] Create valid and malformed BMP inputs to test parser behavior.
-- [x] Use AddressSanitizer and UndefinedBehaviorSanitizer in controlled experiments.
-- [x] Implement coverage-guided fuzzing with libFuzzer.
-- [x] Analyze source-level code coverage using LLVM tools.
-- [x] Construct targeted inputs to exercise previously uncovered security-sensitive branches.
-- [x] Investigate integer-overflow detection at the assembly level using GDB.
-- [x] Verify error handling and propagation through the parser's call chain.
+The project includes:
 
-### Related Vulnerability Research
+- Defensive parsing of BMP files with explicit input validation.
+- Integer-overflow protection for image-size calculations.
+- Valid and malformed BMP test inputs.
+- AddressSanitizer (ASan) and UndefinedBehaviorSanitizer (UBSan) testing.
+- Coverage-guided fuzzing using libFuzzer.
+- Source-level coverage analysis using LLVM tools.
+- Targeted test inputs for previously uncovered security-sensitive branches.
+- GDB analysis of integer-overflow protection at the assembly level.
+- Verification of error handling and propagation through the parser's call chain.
 
-A separate research project focuses on **CVE-2023-52356 in libtiff**, a real-world open-source C library.
+## Related Research
 
-The investigation included:
+Additional vulnerability research projects:
 
-- Reproducing the vulnerability in an affected version.
-- Analyzing the crash using GDB and AddressSanitizer.
-- Investigating the root cause of the invalid memory access.
-- Examining the upstream patch.
-- Verifying the behavior of the patched version.
-
-The research is maintained in a separate repository, with documentation improvements still in progress.
-
-### Next Steps
-
-- [ ] Review and finalize the documentation of the libtiff vulnerability investigation.
-- [ ] Expand binary-level analysis using Ghidra.
-- [ ] Apply coverage-guided fuzzing to a real-world open-source target.
-- [ ] Investigate unexpected crashes and identify their root causes.
-- [ ] Develop a repeatable vulnerability research workflow for analyzing unfamiliar C/C++ codebases.
-- [ ] Progress toward independently discovering and responsibly reporting vulnerabilities.
+- [CVE-2023-52356 — libtiff Vulnerability Analysis](https://github.com/yardenbenita/CVE-2023-52356-libtiff-analysis) — Reproduction, root-cause analysis, and patch validation of a real-world vulnerability in an open-source C library.
+- **Binary Vulnerability Research** — A separate hands-on project focused on memory corruption, GDB, Ghidra, and binary-level vulnerability analysis.
